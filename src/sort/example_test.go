@@ -1,12 +1,11 @@
-package main
+package sort
 
 import (
 	"fmt"
-	"go_for_algorithm/src/sort"
 )
 
-func main() {
+func ExampleHeap_Sort() {
 	nums := []int{1, 3, 34, 123, 34, 12, 456, 12, 4}
-	heapSort := sort.Heap{}
+	heapSort := Heap{}
 	fmt.Println(heapSort.Sort(nums, true))
 }
