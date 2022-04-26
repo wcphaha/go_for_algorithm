@@ -1,11 +1,22 @@
 package sort
 
+/*Heap
+@Description: the heap class with sort method
+*/
 type Heap struct {
 	kind   string
 	nums   []int
 	length int
 }
 
+/*
+	@Title Sort
+ 	@Description: heap-sort
+ 	@Author WuChengPei 2022-04-26 15:15:35
+ 	@Param nums:
+ 	@Param reverse: sort order
+ 	@Return res: sorted sequence
+*/
 func (heap *Heap) Sort(nums []int, reverse bool) (res []int) {
 	heap.BuildHeap(nums, reverse)
 	for heap.length > 0 {
@@ -17,6 +28,13 @@ func (heap *Heap) Sort(nums []int, reverse bool) (res []int) {
 	return res
 }
 
+/*
+	@Title BuildHeap
+ 	@Description: build a heap
+ 	@Author WuChengPei 2022-04-26 15:17:41
+ 	@Param nums:
+ 	@Param reverse:
+*/
 func (heap *Heap) BuildHeap(nums []int, reverse bool) {
 	if reverse {
 		heap.kind = "MIN"
@@ -30,9 +48,17 @@ func (heap *Heap) BuildHeap(nums []int, reverse bool) {
 	}
 
 }
+
 func (heap *Heap) SwapNode(i, j int) {
 	heap.nums[i], heap.nums[j] = heap.nums[j], heap.nums[i]
 }
+
+/*
+	@Title Heapify
+ 	@Description: to ensure the nature of heap
+ 	@Author WuChengPei 2022-04-26 15:18:17
+ 	@Param node:
+*/
 func (heap *Heap) Heapify(node int) {
 	nums := heap.nums
 	if node >= heap.length {
